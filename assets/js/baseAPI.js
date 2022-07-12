@@ -18,8 +18,8 @@ $.ajaxPrefilter(function (options) {
     options.complete = function (res) {
         // complete 函数，无论ajax请求成功与否，都会调用这个函数
         // 使用这个函数来 控制访问权限
-        console.log('执行了 complete 回调')
-        console.log(res)
+        // console.log('执行了 complete 回调')
+        // console.log(res)
         if (res.responseJSON.status === 1 && res.responseJSON.message === '身份认证失败!') {
             // 强制 清空token
             localStorage.removeItem('token')
