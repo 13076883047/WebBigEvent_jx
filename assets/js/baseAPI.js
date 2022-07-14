@@ -3,7 +3,8 @@
 // 在这个函数中，可以拿到我们给Ajax提供的配置对象
 $.ajaxPrefilter(function (options) {
     // 在发起真正的ajax请求之前，统一拼接请求的根路径
-    options.url = 'http://www.liulongbin.top:3007' + options.url
+    // options.url = 'http://www.liulongbin.top:3007' + options.url
+    options.url = 'http://api-breakingnews-web.itheima.net' + options.url
 
     // console.log(options.url)
 
@@ -20,7 +21,7 @@ $.ajaxPrefilter(function (options) {
         // 使用这个函数来 控制访问权限
         // console.log('执行了 complete 回调')
         // console.log(res)
-        if (res.responseJSON.status === 1 && res.responseJSON.message === '身份认证失败!') {
+        if (res.responseJSON.status === 1 && res.responseJSON.message === '身份认证失败！') {
             // 强制 清空token
             localStorage.removeItem('token')
             // 强制 跳转到 login.html
